@@ -633,79 +633,9 @@
   <main class="lesson-wrap">
 
     <!-- ===========================================================
-         SECTION 1 — INTRODUCTION
+         SECTION 1 — MAP (Overview with Navigation Hotspots)
     =========================================================== -->
-    <section id="section-intro" class="lesson-section active">
-      <div class="section-card">
-        <h2>🔥 What Happened in Forest Glen?</h2>
-        <p>
-          A wildfire swept through the community of Forest Glen. It moved fast — through the forest,
-          into the downtown area, and through neighborhoods where people lived.
-        </p>
-        <div class="info-box">
-          <strong>Your Mission</strong>
-          You are an EcoResponder — a scientist who studies what fires leave behind.
-          Explore three locations, look for clues, and record your observations.
-        </div>
-        <p>
-          Scientists look for <em>evidence</em> — things they can actually see —
-          before deciding what happened or why. In this investigation, you'll do the same.
-        </p>
-
-        <div class="nav-row">
-          <button class="btn btn-primary" onclick="goTo('section-vocab')">
-            Next: Key Words →
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================================================
-         SECTION 2 — VOCABULARY
-    =========================================================== -->
-    <section id="section-vocab" class="lesson-section">
-      <div class="section-card">
-        <h2>📖 Key Words to Know</h2>
-        <p>These words will help you understand what you're seeing in the field.</p>
-
-        <div class="vocab-grid">
-          <div class="vocab-card">
-            <div class="word">Wildfire</div>
-            <div class="def">A large, uncontrolled fire that spreads through nature and sometimes into towns.</div>
-          </div>
-          <div class="vocab-card">
-            <div class="word">Evidence</div>
-            <div class="def">Something you can see, touch, or measure that helps explain what happened.</div>
-          </div>
-          <div class="vocab-card">
-            <div class="word">Erosion</div>
-            <div class="def">When soil or rock is worn away and moved by water or wind.</div>
-          </div>
-          <div class="vocab-card">
-            <div class="word">Regeneration</div>
-            <div class="def">When living things grow back after being destroyed.</div>
-          </div>
-          <div class="vocab-card">
-            <div class="word">Combustible</div>
-            <div class="def">Something that can easily catch fire and burn.</div>
-          </div>
-          <div class="vocab-card">
-            <div class="word">Ash</div>
-            <div class="def">The powdery remains left after something burns completely.</div>
-          </div>
-        </div>
-
-        <div class="nav-row">
-          <button class="btn btn-secondary" onclick="goTo('section-intro')">← Back</button>
-          <button class="btn btn-primary" onclick="goTo('section-map')">Go to the Map →</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================================================
-         SECTION 3 — MAP (Overview with Navigation Hotspots)
-    =========================================================== -->
-    <section id="section-map" class="lesson-section">
+    <section id="section-map" class="lesson-section active">
       <div class="section-card">
         <h2>🗺️ Explore Forest Glen</h2>
         <p>
@@ -734,7 +664,7 @@
             Keep the img tag; remove the placeholder div below it.
           -->
           <img
-            src="EcoResponders_ForestGlen_After Map.png"
+            src="images/EcoResponders_ForestGlen_After Map.png"
             alt="Map of Forest Glen showing the forest, downtown, and residential regions after the fire"
             onerror="this.style.display='none'; document.getElementById('map-placeholder').style.display='flex';"
           />
@@ -744,7 +674,7 @@
             style="display:none; background:#c8d5b9;"
           >
             <span>🗺️</span>
-            <span>Map image not found.<br>Add <strong>EcoResponders_ForestGlen_After Map.png</strong> to your project folder.</span>
+            <span>Map image not found.<br>Add <strong>EcoResponders_ForestGlen_After Map.png</strong> to your images folder.</span>
           </div>
 
           <!-- Hotspot 1: Forest Region -->
@@ -783,7 +713,6 @@
         </div><!-- /main-map-wrapper -->
 
         <div class="nav-row" style="margin-top: 28px;">
-          <button class="btn btn-secondary" onclick="goTo('section-vocab')">← Back</button>
           <button class="btn btn-primary" id="btn-finish-map" style="display:none;" onclick="goTo('section-summary')">
             Finish Investigation →
           </button>
@@ -818,7 +747,7 @@
         <div class="map-wrapper" id="forest-wrapper">
 
           <img
-            src="EcoResponders_ForestGlen_After Forest Investigation.png"
+            src="images/EcoResponders_ForestGlen_After Forest Investigation.png"
             alt="Close-up view of the forest region after the fire showing ash, pine cones, and new plant growth"
             onerror="this.style.display='none'; document.getElementById('forest-placeholder').style.display='flex';"
           />
@@ -926,7 +855,7 @@
         <div class="map-wrapper" id="downtown-wrapper">
 
           <img
-            src="EcoResponders_ForestGlen_After Downtown Investigation.png"
+            src="images/EcoResponders_ForestGlen_After Downtown Investigation.png"
             alt="Close-up view of the downtown district after the fire showing burned buildings and ash"
             onerror="this.style.display='none'; document.getElementById('downtown-placeholder').style.display='flex';"
           />
@@ -1033,7 +962,7 @@
         <div class="map-wrapper" id="home-wrapper">
 
           <img
-            src="EcoResponders_ForestGlen_After Home Investigation.png"
+            src="images/EcoResponders_ForestGlen_After Home Investigation.png"
             alt="Close-up view of the residential area after the fire showing a chimney, house outline, and belongings"
             onerror="this.style.display='none'; document.getElementById('home-placeholder').style.display='flex';"
           />
@@ -1148,7 +1077,7 @@
 
         <div class="nav-row">
           <button class="btn btn-secondary" onclick="goTo('section-map')">← Back to Map</button>
-          <button class="btn btn-primary" onclick="goTo('section-intro')">
+          <button class="btn btn-primary" onclick="goTo('section-map')">
             🔄 Start Over
           </button>
         </div>
@@ -1168,25 +1097,23 @@
        clues have been opened in each investigation area.
     ============================================================ */
     var state = {
-      currentSection: 'section-intro',
-      sectionsVisited: { 'section-intro': true },
+      currentSection: 'section-map',
+      sectionsVisited: { 'section-map': true },
       /* clues[section][clueNumber] = true when opened */
       clues: { forest: {}, downtown: {}, home: {} },
       /* Whether the journal for each area has text */
       journals: { forest: false, downtown: false, home: false },
       /* Total sections in the lesson (for progress bar) */
-      totalSections: 7
+      totalSections: 5
     };
 
     /* Map section IDs to progress step numbers */
     var sectionOrder = {
-      'section-intro':     1,
-      'section-vocab':     2,
-      'section-map':       3,
-      'section-forest':    4,
-      'section-downtown':  5,
-      'section-home':      6,
-      'section-summary':   7
+      'section-map':       1,
+      'section-forest':    2,
+      'section-downtown':  3,
+      'section-home':      4,
+      'section-summary':   5
     };
 
     /* ============================================================
